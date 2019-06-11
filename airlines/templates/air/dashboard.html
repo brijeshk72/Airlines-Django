@@ -1,0 +1,109 @@
+{% extends 'base2.html'%}
+{% block content %}
+{% load static %}
+
+		<!-- =====================User Dashboard============================= -->
+		<section style="background-color: #356E15;">
+			<div class="container dashboard" >
+			<div class="row p-3" >
+				<div class="col-md-3 col-12 text-white text-center">
+					<h4>Dashboard</h4>
+				</div>
+				<!--{% for x in y %}-->
+				<div class="col-md-2 col-12">
+
+					<!--{{x.id}}-->
+					<!--{{x.fname}}-->
+					<!--{{x.lname}}-->
+					<!--{{x.state}}-->
+
+				</div>
+				<div class="col-md-4 col-12 text-white">
+					<p>Welcome! {{x.fname}} {{x.lname}}</p>
+
+				</div>
+				<div class="col-md-3 col-12 text-center">
+					<h4><a href="{% url 'logout' %}"><button type="button" class="btn btn-info btn-sm bg-dark m-auto">Log Out</button></a></h4>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">My Profile</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-3 col-12">
+									<img src="{% static 'img\user.png' %}" class="img-fluid">
+								</div>
+								<div class="col-md-9 col-12">
+									<p>Update your profile</p>
+									<a href="{% url 'profile' pk=x.pk %}" type="button" class="btn btn-info btn-sm bg-dark m-auto">click view</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">Ticket</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-3 col-12">
+									<img src="{% static 'img\ticket.jpg' %}" class="img-fluid">
+								</div>
+								<div class="col-md-9 col-12"> 
+									<p>Your ticket Histry</p>
+									<a href="{% url 'ticket' e_pk=x.email %}" type="button" class="btn btn-info btn-sm bg-dark m-auto">view Ticket</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">Payment</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-3 col-12">
+									<img src="{% static 'img\payment.jpg' %}" class="img-fluid">
+								</div>
+								<div class="col-md-9 col-12"> 
+									<p>Check Your payment</p>
+									<button type="button" class="btn btn-info btn-sm bg-dark m-auto">View Details</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--{% endfor%}-->
+			<!-- <div class="row p-5">
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">My Profile</div>
+						<div class="card-body"></div>
+					</div>
+					
+				</div>
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">Account Recorvery</div>
+						<div class="card-body">Content</div>
+					</div>
+					
+				</div>
+				<div class="col-md-4 col-12">
+					<div class="card">
+						<div class="card-header">Change Password</div>
+						<div class="card-body">Content</div>
+					</div>
+				</div>
+			</div> -->
+			</div>
+		</section>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+		<!-- =================Show all Match Plane================ -->
+
+		<section style="background-color: #7FE641;">
+			<div class="container">
+				<div class="row text-warning text-center  m-1"  style="background-color: #173705;">
+					<div class="col-md-2 col-12">
+						<h4>Name</h4>
+					</div>
+					<div class="col-md-3 col-12">
+						<h4>Source</h4>
+					</div>
+					<div class="col-md-3 col-12">
+						<h4>Destination</h4>
+					</div>
+					<div class="col-md-2 col-12">
+						<h4>Price (INR)</h4>
+					</div>
+					<div class="col-md-2 col-12">
+						<h4>Book Now</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+
+				{% if flights %}
+		{% for plane in flights %}
+				<div class="row text-white text-center m-1"  style="background-color: #156E15;">
+					<div class="col-md-2 col-12 text-uppercase text-bold font-weight-bold">
+						<p  style="margin-top: 25px; fo">{{plane.planename}}</p>
+					</div>
+					<div class="col-md-3 col-12">
+						<p>{{plane.source}}</p>
+						<p>{{plane.checkin}}</p>
+					</div>
+					<div class="col-md-3 col-12">
+						<p>{{plane.destination}}</p>
+						<p>{{plane.checkout}}</p>
+					</div>
+					<div class="col-md-2 col-12">
+						<p  style="margin-top: 25px;">{{plane.price}}</p>
+					</div>
+					<div class="col-md-2 col-12">
+						<a href="{% url 'buy' buy_id=plane.id %}" class="btn text-warning btn-warning" style="margin-top: 25px; background-color: #156E15;" title="">Book Now</a>
+					</div>
+				</div>
+				{% endfor%}
+		{% endif%}
+
+			</div>
+		</section>
+		<!-- ============================End of showing plane========================== -->
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base2.html'%}
+{% block content %}
+{% load static %}
+
+		<!-- =====================User Dashboard============================= -->
+		<section  class="p-2" style="background-color: #356E15;">
+			<div  class="container bg-secondary m-auto dashboard">
+			<div class="row bg-success p-2">
+				<div class="col-md-2 col-sm-4 col-12 text-white">
+					<h4>Dashboard</h4>
+				</div>
+				<div class="col-md-5 col-sm-4 col-12">
+					
+				</div>
+				{% if obj%}
+				<div class="col-md-3 col-sm-4 col-12 text-white">
+					<p>Welcome! {{ obj.fname }} {{ obj.lname }}</p>
+				</div>
+				<div class="col-md-2 col-12 text-md-right text-sm-right">
+					<h4><a href="{% url 'logout' %}"><button type="button" class="btn btn-info btn-sm bg-dark m-auto">Log Out</button></a></h4>
+				</div>
+			</div>
+			<div class="row p-3 text-white "style="background-color: #173705;">
+				<div class="col-md-3 p-1">
+					<div class="card" style="width:200px">
+						<img class="card-img-top img-fluid" src="{% static 'img\brijesh.jpg' %}">
+						<div class="card-body">
+							<a href="#" class="btn btn-primary">Chenge Picture</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 p-1 text-md-left float-right">
+					<div class="row">
+
+
+						<div class="col-md-3">
+							<h4>Name</h4>
+						</div>
+						<div class="col-md-3">
+							<h6>{{obj.fname}}</h6>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<h4>Phone No.</h4>
+						</div>
+						<div class="col-md-3">
+							<h6>{{obj.phone}}</h6>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-12">
+							<h4>Email</h4>
+						</div>
+						<div class="col-md-3">
+							<h6>{{obj.email}}</h6>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<h4>Country</h4>
+						</div>
+						<div class="col-md-3">
+							<h6>{{ obj.country }}</h6>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<h4>State</h4>
+						</div>
+						<div class="col-md-3">
+							<h6>{{obj.state}}</h6>
+						</div>
+
+					</div>
+
+					<div class="row p-3">
+						<div class="col-md-6"><a href="{% url 'delete' dl=obj.id %}" class="btn btn-primary">Delete Account</a></div>
+
+					</div>
+
+					{% endif %}
+
+
+					<!-- <div class="container">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<td>Lastname</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Email</th>
+									<td>Doe</td>
+								</tr>
+								<tr>
+									<th>Phone No.</th>
+									<td>Moe</td>
+								</tr>
+								<tr>
+									<th>Country</th>
+									<td>july@example.com</td>
+								</tr>
+								<tr>
+									<th>State</th>
+									<td>july@example.com</td>
+								</tr>
+							</tbody>
+						</table>
+					</div> -->
+				</div>
+			</div>
+			</div>
+		</section>
+
+{% endblock %}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Air Lines</title>
+		<link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+				<div class="bgimg">
+
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #173705;">
+				<div class="container">
+					<a href="{% url 'index' %}" class="navbar-brand text-warning font-weight-bold"> AIRLINES</a>
+					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsenavbar">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse text-center" id="collapsenavbar">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a href="{% url 'show' %}" class="nav-link text-white">ALL FLIGHTS</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">PRODUCT</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">ABOUT</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">TEAM</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">CONTACT US</a>
+							</li>
+							<!-- Trigger the modal with a button -->
+							<li class="nav-item">
+								<a href="{% url 'login' %}" class="btn text-white m-auto"  style="background-color: #173705;">LOGIN</a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'register' %}"  class="btn text-white " style="background-color: #173705;">REGISTER</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+			<div class="container text-center text-danger headset">
+				<div class="row headsetrow">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-12  colsetting"  style="background-color: #173705;">
+						<h3 class="text-center text-warning"> Search your Flight</h3>
+						<div class="row text-white formclass">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12 ">
+
+								<form action="{% url 'show' %}" method="POST">
+									{% csrf_token %}
+									<div class="form-group">
+										<label for="source">From</label>
+										<select class="form-control" name="source" id="source">
+											<option>Delhi, India(DEL)</option>
+											<option>Mumbai, India(BOM)</option>
+											<option>Bangalore, India(BLR)</option>
+											<option>Pune, India(PNQ)</option>
+											<option>Hyderabad, India(HYD)</option>
+											<option>Kolkata, India(CCU)</option>
+											<option>Varansi, India (VNS)</option>
+											<option>Chennai, India(MAA)</option>
+											<option>Goa, India(GOI)</option>
+											<option>New York, United State(NYC)</option>
+											<option>Bankkok, Thailand(BKK)</option>
+											<option>Singapore, Singapore(SIN)</option>
+											<option>Kathmandu, Nepal(KTM)</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="checkin">CHECK IN</label>
+										<input class="form-control" type="date" value="2019-06-01" name="checkin" id="checkin">
+									</div>
+									<!--<div class="form-group">-->
+										<!--<label for="sel1">Echonomy</label>-->
+										<!--<select class="form-control" id="sel1">-->
+											<!--<option>Echonomy</option>-->
+											<!--<option>Premium Echonomy</option>-->
+											<!--<option>Business</option>-->
+										<!--</select>-->
+									<!--</div>-->
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12 ">
+									<div class="form-group">
+										<label for="destination">To</label>
+										<select class="form-control" name="destination" id="destination">
+											<option>Varansi, India (VNS)</option>
+											<option>Mumbai, India (BOM)</option>
+											<option>Delhi, India (DEL)</option>
+											<option>Bangalore, India (BLR)</option>
+											<option>Pune, India(PNQ)</option>
+											<option>Hyderabad, India(HYD)</option>
+											<option>Kolkata, India (CCU)</option>
+											<option>Chennai, India(MAA)</option>
+											<option>Goa, India(GOI)</option>
+											<option>New York, United State (NYC)</option>
+											<option>Bankkok, Thailand (BKK)</option>
+											<option>Singapore, Singapore (SIN)</option>
+											<option>Kathmandu, Nepal (KTM)</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="echonomy">Echonomy</label>
+										<select class="form-control" name="echonomy" id="echonomy">
+											<option>Echonomy</option>
+											<option>Premium Echonomy</option>
+											<option>Business</option>
+										</select>
+									</div>
+									<!--<div class="form-group">-->
+										<!--<label for="example-date-input">CHEN OUT</label>-->
+										<!--<input class="form-control" type="date" value="2019-06-01" id="example-date-input">-->
+									<!--</div>-->
+									<div class="form-group btnset">
+										<button type="submit" class="btn btn-default bg-warning m-auto btnset">Search Flight</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-12 text-warning offer">
+						<h2 class="text-center text-white">Exclusive Limited Time Offer</h2>
+						<p class="text-center text-primary">Fly to Hong Kong via Los Angeles, USA</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<section class="container text-center ourservices">
+			<h1>SERVICES</h1>
+			<p>Enjoy With Me online</p>
+			<div class="row rowsetting">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+					<div class="d-block m-auto bg-warning imgsetting"><i class="fa fa-ticket fa-3x text-white"></i></div>
+					<h2>Air Ticket</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an scrambled it to make a type specimen book.</p>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+					<div class="d-block m-auto bg-warning imgsetting"><i class="fa fa-ticket fa-3x  text-white"></i></div>
+					<h2>Bus Ticket</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an scrambled it to make a type specimen book.</p>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+					<div class="d-block m-auto bg-warning imgsetting"><i class="fa fa-ticket fa-3x  text-white"></i></div>
+					<h2>Movies Ticket</h2>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.when an scrambled it to make a type specimen book.</p>
+				</div>
+
+			</div>
+
+		</section>
+		<section class="portfolio"  style="background-color: #7FE641;">
+			<div class="container text-center portsetting">
+				<h1>PORTFOLIO</h1>
+				<p>This is my owesome portfolio</p>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+						<div class="card">
+							<img src="{% static 'img\body1.jpg' %}" class="card-img img-fluid" alt="">
+							<div class="card-body">
+								<h2 class="card-title">Tour</h2>
+								<p class="card-text">Enjoy your life with us</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+						<div class="card">
+							<img src="{% static 'img\body1.jpg' %}" class="card-img img-fluid" alt="">
+							<div class="card-body">
+								<h2 class="card-title">Branding</h2>
+								<p class="card-text">My product are great brand</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-12 col-10 d-block m-auto">
+						<div class="card">
+							<img src="{% static 'img\body1.jpg' %}" class="card-img img-fluid" alt="">
+							<div class="card-body">
+								<h2 class="card-title">Free Ticket</h2>
+								<p class="card-text">Enjoy free cinema</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ourteam">
+			<div class="container text-center">
+				<h1>OUR TEAM</h1>
+				<p> Meet My owesome Team member</p>
+				<div class="row teamsetting">
+					<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+						<figure class="figure">
+							<img src="{% static 'img\Brijesh.jpg' %}" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+							<figcaption>
+								<h4>En.Brijesh</h4>
+								<p class="figure-caption">Seniour Software Developer</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+						<figure class="figure">
+							<img src="{% static 'img\girls.jpg' %}" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+							<figcaption>
+								<h4>En. Leera</h4>
+								<p class="figure-caption">Seniour HR and </p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+						<figure class="figure">
+							<img src="{% static 'img\boys.jpg' %}" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
+							<figcaption>
+								<h4>En.Jhon</h4>
+								<p class="figure-caption">Seniour software Engineer</p>
+							</figcaption>
+						</figure>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+<!-- =============start footer============= -->
+<footer class="footer_style">
+			<main class="container-fluid">
+				<div class="row p-3">
+					<div class="col-md-4 col-12 offset-1">
+						<p class="m-auto text-justify">
+							If you don't include a label for every input, screen readers will have trouble with your forms. You can hide the labels for all devices, except screen readers
+						</p>
+						<p class="text-capitalize">
+							BrijeshSingh &copy Copyright All Right Reserve
+						</p>
+					</div>
+					<div class="col-md-4 col-12">
+						<h4>Contact</h4>
+						<dl class="contact-list">
+							<dt>Address:</dt>
+							<dd> Delhi,India</dd>
+						</dl>
+						<dl class="contact-list">
+							<dt>Email:</dt>
+							<dd> <a href="mailto:#">kushwahab46@gmail.com</a></dd>
+						</dl>
+						<dl class="contact-list">
+							<dt>Phone No.:</dt>
+							<dd> <a href="tel:#">7275558348</a></dd>
+						</dl>
+					</div>
+					<div class="col-md-2 col-12">
+						<h4>Links</h4>
+						<ul>
+							<li><a href="#" title="">Service</a></li>
+							<li><a href="#" title="">Product</a></li>
+							<li><a href="#" title="">About</a></li>
+							<li><a href="#" title="">Team</a></li>
+							<li><a href="#" title="">Country</a></li>
+						</ul>
+
+					</div>
+				</div>
+
+			</main>
+		</footer>
+
+
+	</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+		<!-- =================Register=============================== -->
+		<section  style="background-color: #356E15;">
+			<div class="row">
+				<div class="col-md-3 col-12"></div>
+				<div class="col-md-6 col-12 m-2">
+					<div class="modal-content  text-white"  style="background-color: #173705;">
+						<div class="modal-header">
+							<h4 class="modal-title">Register Now</h4>
+							
+						</div>
+						<div class="modal-body">
+							<!-- ==================Register form================== -->
+							<form action="{% url 'register' %}" method="POST">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label for="fname">First Name:</label>
+											<input type="text" class="form-control" name="fname" id="fname">
+										</div>
+										<div class="form-group">
+											<label for="phone">Phone Number:</label>
+											<input type="text" class="form-control" name="phone" id="phone">
+										</div>
+										<div class="form-group">
+											<label for="country">Country:</label>
+											<input type="text" class="form-control" name="country" id="country">
+										</div>
+										<div class="form-group">
+											<label for="pwd1">Password:</label>
+											<input type="password" class="form-control" name="pwd1" id="pwd1">
+										</div>
+										
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label for="lname">Last Name:</label>
+											<input type="text" class="form-control" name="lname" id="lname">
+										</div>
+										<div class="form-group">
+											<label for="email">Email address:</label>
+											<input type="email" class="form-control" name="email" id="email">
+										</div>
+										<div class="form-group">
+											<label for="state">State:</label>
+											<input type="text" class="form-control" name="state" id="state">
+										</div>
+										<div class="form-group">
+											<label for="pwd2">Confirm-Password:</label>
+											<input type="password" class="form-control" name="pwd2" id="pwd2">
+										</div>
+										
+									</div>
+								</div>
+								
+								<button type="submit" class="btn btn-default bg-warning">Register</button>
+							</form>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-12">
+			</div>
+		</section>
+
+{% endblock %}

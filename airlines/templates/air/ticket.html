@@ -1,0 +1,92 @@
+{% extends 'base2.html'%}
+{% block content %}
+{% load static %}
+
+		<!-- =====================User Dashboard============================= -->
+		<section  class="p-2" style="background-color: #356E15;">
+			<div class="container dashboard">
+			<div class="row bg-success">
+				<div class="col-md-2 col-12 text-white">
+					<h4>Dashboard</h4>
+				</div>
+				<div class="col-md-5 col-12">
+
+				</div>
+				{% for x in tk %}
+				<div class="col-md-3 col-12 text-white">
+					<p>Welcome! {{x.fname}} {{x.lname}}</p>
+
+				</div>
+				<div class="col-md-2 col-12 text-md-right text-sm-right">
+					<h4><a href="{% url 'logout' %}"><button type="button" class="btn btn-info btn-sm bg-dark m-auto">Log Out</button></a></h4>
+				</div>
+			</div>
+
+            <!-- =================Ticket================ -->
+
+		
+			{% endfor %}
+					{% for t in tkc %}
+			<div class="container m-2 text-white" style="background-color: #173705;">
+				<!--<div class="row text-center bg-warning">-->
+					<!--<div class="col-md-4">-->
+
+					<!--</div>-->
+					<!--<div class="col-md-4">-->
+						<!--<h4>Pnalne company name</h4>-->
+					<!--</div>-->
+					<!--<div class="col-md-4">-->
+
+					<!--</div>-->
+				<!--</div>-->
+				<div class="row">
+					<!--<div class="col-md-4">-->
+						<!--<h4>Name of passenger</h4>-->
+						<!--<p> {{x.fname}} {{x.lname}}</p>-->
+					<!--</div>-->
+
+					<div class="col-md-4">
+						<h4>Depart</h4>
+						<p>{{t.dtime}}</p>
+					</div>
+					<div class="col-md-4">
+						<h4>Arrive</h4>
+						<p>{{t.atime}}</p>
+					</div>
+					<div class="col-md-4">
+						<h4>Flight</h4>
+						<p>{{t.cname}}</p>
+					</div>
+
+				</div>
+
+				<div class="row p-0">
+					<div class="col-md-4">
+						<h4>From</h4>
+						<p>{{t.start}}</p>
+					</div>
+					<div class="col-md-4">
+						<h4>Destination</h4>
+						<p>{{t.end}}</p>
+					</div>
+					<div class="col-md-4">
+						<h4>Class</h4>
+						<p>{{t.category}}</p>
+					</div>
+
+				</div>
+
+				<div class="row p-2">
+
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<button type="" class="bg-success">Download</button>
+					</div>
+					<div class="col-md-4"></div>
+
+				</div>
+			</div>
+			{% endfor %}
+			</div>
+		</section>
+{% endblock %}

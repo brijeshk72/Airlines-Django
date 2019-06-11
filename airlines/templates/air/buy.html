@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+
+		<!-- =================buy================ -->
+
+		<section  style="background-color: #356E15;">
+			<div class="container text-white">
+                {% for bn in buy_now%}
+                <form action="{% url 'confirm' %}" method="POST">
+                	{% csrf_token %}
+				<div class="row" style="background-color:green;">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 text-center">
+						<h4> <input type="text" name="cname" value="{{ bn.planename }}" style="background-color:green;border:none; color:white;" readonly></h4>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+				<div class="row m-2">
+					<div class="col-md-1"></div>
+					<div class="col-md-2 ">Source</div>
+					<div class="col-md-3"><input type="text" name="start" value="{{ bn.source }}" readonly></div>
+					<div class="col-md-2">Destination</div>
+					<div class="col-md-3"><input type="text" name="end" value="{{ bn.destination }}" readonly></div>
+					<div class="col-md-1"></div>
+				</div>
+				<div class="row m-2">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">Depart time</div>
+					<div class="col-md-3"><input type="text" name="dtime" value="{{ bn.checkin }}" readonly></div>
+					<div class="col-md-2">Arrive time</div>
+                    <div class="col-md-3"><input type="text" name="atime" value="{{ bn.checkout }}" readonly></div>
+					<div class="col-md-1"></div>
+				</div>
+				<div class="row m-2">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">Price</div>
+					<div class="col-md-3"><input type="text" name="payprice" value="{{ bn.price }}" readonly></div>
+					<div class="col-md-2">Class</div>
+                    <div class="col-md-3"> <input type="text" name="category" value="{{ bn.echonomy }}" readonly></div>
+					<div class="col-md-1"></div>
+				</div>
+				<div class="row m-2">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">Enter Your Register Email</div>
+					<div class="col-md-3"><input type="email" name="mail" required></div>
+					<div class="col-md-2"></div>
+					<div class="col-md-3"><button type="submit" class="btn btn-info btn-sm bg-dark text-white m-auto">Confirm</button></div>
+					<div class="col-md-1"></div>
+				</div>
+                </form>
+        {% endfor %}
+
+			</div>
+		</section>
+		<!-- ============================End of buy========================== -->
+
+{% endblock %}

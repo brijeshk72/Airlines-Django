@@ -1,0 +1,106 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Air Lines</title>
+		<link rel="stylesheet" href="{% static 'css/style2.css' %}" type="text/css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</head>
+
+
+
+	<body>
+		<div class="bgimg">
+
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top"  style="background-color: #173705;">
+				<div class="container">
+					<a href="{% url 'index' %}" class="navbar-brand text-warning font-weight-bold"> AIRLINES</a>
+					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsenavbar">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse text-center" id="collapsenavbar">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a href="{% url 'show' %}" class="nav-link text-white">ALL FLIGHTS</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">PRODUCT</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">ABOUT</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">TEAM</a>
+							</li>
+							<li class="nav-item">
+								<a href="" class="nav-link text-white">CONTACT US</a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'login' %}" class="btn text-white m-auto"  style="background-color: #173705;">LOGIN</a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'register' %}"  class="btn text-white " style="background-color: #173705;">REGISTER</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- =================Start Body================ -->
+        {% block content %} {% endblock %}
+		<!-- =================End Body================ -->
+		<!-- =============start footer============= -->
+		<footer class="footer_style">
+			<main class="container-fluid text-white"  style="background-color: #173705;">
+				<div class="row p-3">
+					<div class="col-md-4 col-12 offset-1">
+						<p class="m-auto text-justify">
+							If you don't include a label for every input, screen readers will have trouble with your forms. You can hide the labels for all devices, except screen readers
+						</p>
+						<p class="text-capitalize">
+							BrijeshSingh &copy Copyright All Right Reserve
+						</p>
+					</div>
+					<div class="col-md-4 col-12">
+						<h4>Contact</h4>
+						<dl class="contact-list">
+							<dt>Address:</dt>
+							<dd> Delhi,India</dd>
+						</dl>
+						<dl class="contact-list">
+							<dt>Email:</dt>
+							<dd> <a href="mailto:#">kushwahab46@gmail.com</a></dd>
+						</dl>
+						<dl class="contact-list">
+							<dt>Phone No.:</dt>
+							<dd> <a href="tel:#">7275558348</a></dd>
+						</dl>
+					</div>
+					<div class="col-md-2 col-12">
+						<h4>Links</h4>
+						<ul>
+							<li><a href="#" title="">Service</a></li>
+							<li><a href="#" title="">Product</a></li>
+							<li><a href="#" title="">About</a></li>
+							<li><a href="#" title="">Team</a></li>
+							<li><a href="#" title="">Country</a></li>
+						</ul>
+
+					</div>
+				</div>
+
+			</main>
+		</footer>
+	</body>
+</html>
